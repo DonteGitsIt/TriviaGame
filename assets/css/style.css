@@ -8,6 +8,9 @@ h1{
     font-size: 100px;
     font-family: 'Permanent Marker', cursive;
 }
+button{
+    margin-top:25px;
+}
 img{
     height:300px;
     width:500px;

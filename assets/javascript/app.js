@@ -64,7 +64,8 @@ $(document).ready(function(){
             game.timer--
             $('#time-left').html(game.timer)
             if (game.timer < 1){
-                game.wrongAnswerPage()
+
+                game.timeUpPage()
             }
         },
 
@@ -92,12 +93,14 @@ $(document).ready(function(){
                 clearInterval(intervalId)
                 var score = (answersCorrect/game.questions.length) * 100
                 $('#content').html('<h2>All done, here'+"'"+'s how you did:')
-                $('#content').append('<p> Correct Answers: '+ answersCorrect +'</p>')
-                $('#content').append('<p>Wrong Answers: '+ answersWrong + '</p>')
+                $('#content').append('<p>Correct answers: '+ answersCorrect +'</p>')
+                $('#content').append('<p>Wrong answers: '+ answersWrong + '</p>')
+                $('#content').append('<p>Unanswered questions: '+ questionsUnanswered + '</p>')
                 $('#content').append('<p>You scored a '+score+'%</p>')
                 $('#content').append('<p><button id='+'"startOver"><h3>Start Over?</h3></button></p>')
                 $('#startOver').on('click', function(){
                     counter = 0
+                    questionsUnanswered = 0
                     answersWrong = 0
                     answersCorrect = 0
                     game.pageUpdate()
@@ -123,12 +126,20 @@ $(document).ready(function(){
             answersWrong++
             counter++
             setTimeout(game.pageUpdate, 5000)
+        },
+        timeUpPage: function(){
+            clearInterval(intervalId)
+            
+            $('#content').html("<h2>Time's Up!</h2>")
+            $('#content').append($('<p>').text('The correct answer was '+game.questions[counter].correct))
+            $('#content').append($('<img>').attr('src', game.questions[counter].image))
+            questionsUnanswered++
+            counter++
+            setTimeout(game.pageUpdate, 5000)
         }
 
-
     }
-
-    
+    var questionsUnanswered = 0
     var answersWrong = 0
     var answersCorrect = 0
     var intervalId;
