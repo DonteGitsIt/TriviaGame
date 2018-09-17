@@ -20,7 +20,7 @@ $(document).ready(function(){
         },
         {
             question: '"Bad and Boujee" is a song by:',
-            answers: ['Lil Uzi Vert', 'Gucci', 'Future', 'Migos'],
+            answers: ['Lil Uzi Vert', 'Gucci Mane', 'Future', 'Migos'],
             correct: 'Migos',
             image: 'assets/images/migos.gif'
         },
@@ -37,7 +37,7 @@ $(document).ready(function(){
             image: 'assets/images/swimming.gif'
         },
         {
-            question: "Which 90's rap group made the song"+'"'+"Passin' Me By?"+'"',
+            question: "Which 90's rap group made the song "+'"'+"Passin' Me By?"+'"',
             answers: ['A Tribe Called Quest', 'The Pharcyde','Wu-Tang Clan','Goodie Mob'],
             correct: 'The Pharcyde',
             image: 'assets/images/pharcyde.gif'
